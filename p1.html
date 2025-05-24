@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arun Das Portfolio</title>
+
+  <!-- AOS Animation Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      padding: 40px;
+      background-color: #fff;
+    }
+
+    .hero-img {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-img img {
+      height: 80%;
+      width: auto;
+      max-height: 500px;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero-content {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      color: #001f3f;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .chat-btn {
+      margin-top: 20px;
+      background: #0074D9;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .section {
+      display: flex;
+      padding: 100px 20px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section.right .content {
+      margin-left: auto;
+    }
+
+    .section.left .content {
+      margin-right: auto;
+    }
+
+    .content {
+      width: 50%;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .content h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #001f3f;
+    }
+
+    .content p {
+      margin-bottom: 10px;
+    }
+
+    .content a {
+      background: #0074D9;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #001f3f;
+      color: white;
+    }
+
+    @media(max-width: 768px) {
+      .hero {
+        flex-direction: column;
+      }
+
+      .hero-img, .hero-content {
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .section {
+        flex-direction: column !important;
+      }
+
+      .content {
+        width: 100%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-img" data-aos="fade-right" data-aos-offset="200">
+      <img src="./img/IMG_20240917_171836.jpg" alt="Profile Image">
+    </div>
+    <div class="hero-content" data-aos="fade-left" data-aos-offset="200">
+      <h1>Arun D A</h1>
+      <p>MCA Student & Aspiring Developer</p>
+      <a href="chat.html" class="chat-btn">Chat with Me</a>
+    </div>
+  </section>
+
+  <!-- Alternating Scroll Sections -->
+  <section class="section right" data-aos="fade-left" data-aos-offset="200">
+    <div class="content">
+      <h2>About Me</h2>
+      <p>I'm passionate about software development, innovation, and problem-solving.</p>
+      <a href="about.html">Read More →</a>
+    </div>
+  </section>
+
+  <section class="section left" data-aos="fade-right" data-aos-offset="200">
+    <div class="content">
+      <h2>Education</h2>
+      <p>Currently pursuing MCA with specialization in AI at MACE.</p>
+      <a href="education.html">View Education →</a>
+    </div>
+  </section>
+
+  <section class="section right" data-aos="fade-left" data-aos-offset="200">
+    <div class="content">
+      <h2>Skills</h2>
+      <p>Proficient in Kotlin, Java, Python, SQLite, Jetpack Compose, and more.</p>
+      <a href="skills.html">See Skills →</a>
+    </div>
+  </section>
+
+  <section class="section left" data-aos="fade-right" data-aos-offset="200">
+    <div class="content">
+      <h2>Projects</h2>
+      <p>Explore my app-based projects with real-world integration and UI/UX.</p>
+      <a href="projects.html">Explore Projects →</a>
+    </div>
+  </section>
+
+  <section class="section right" data-aos="fade-left" data-aos-offset="200">
+    <div class="content">
+      <h2>Certifications</h2>
+      <p>Certified in AI, Data Science, App Development, and more.</p>
+      <a href="certifications.html">View Certifications →</a>
+    </div>
+  </section>
+
+  <section class="section left" data-aos="fade-right" data-aos-offset="200">
+    <div class="content">
+      <h2>Others</h2>
+      <p>Includes my volunteering, nature club activities, and sports achievements.</p>
+      <a href="others.html">Know More →</a>
+    </div>
+  </section>
+
+  <section class="section right" data-aos="fade-up" data-aos-offset="200">
+    <div class="content">
+      <h2>Contact</h2>
+      <p>Want to connect or collaborate? Feel free to contact me.</p>
+      <a href="contact.html">Contact Me →</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Arun Das. All rights reserved.
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+      anchorPlacement: 'top-bottom'
+    });
+  </script>
+</body>
+</html>
