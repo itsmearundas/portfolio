@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arun Das | MCA Student & Developer</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --deep-blue: #5409DA;
+      --primary-blue: #4E71FF;
+      --light-blue: #8DD8FF;
+      --pale-blue: #BBFBFF;
+      --black: #0A0A0A;
+      --white: #FFFFFF;
+      --gray: #F5F7FA;
+      --dark-gray: #6E7E90;
+      --section-bg: rgba(255, 255, 255, 0.85);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: var(--gray);
+      color: var(--black);
+      scroll-behavior: smooth;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Glassmorphism Effect */
+    .glass-card {
+      background: var(--section-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    }
+
+    /* Hero Section - Advanced Design */
+    .hero {
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      padding: 0 5%;
+      background: linear-gradient(135deg, var(--white) 0%, var(--pale-blue) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-bg-elements {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    
+    .hero-bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.15;
+    }
+    
+    .circle-1 {
+      width: 600px;
+      height: 600px;
+      background: var(--deep-blue);
+      top: -200px;
+      right: -200px;
+    }
+    
+    .circle-2 {
+      width: 400px;
+      height: 400px;
+      background: var(--primary-blue);
+      bottom: -100px;
+      left: -100px;
+    }
+    
+    .circle-3 {
+      width: 300px;
+      height: 300px;
+      background: var(--light-blue);
+      top: 50%;
+      left: 30%;
+    }
+
+    .hero-img {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      padding: 40px;
+    }
+
+    .hero-img-container {
+      position: relative;
+      width: 100%;
+      max-width: 450px;
+    }
+    
+    .hero-img-border {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 3px solid var(--primary-blue);
+      border-radius: 20px;
+      top: 20px;
+      left: 20px;
+      z-index: -1;
+      transition: all 0.5s ease;
+    }
+    
+    .hero-img-container:hover .hero-img-border {
+      top: 15px;
+      left: 15px;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 25px 50px -12px rgba(84, 9, 218, 0.25);
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .hero-img img:hover {
+      transform: scale(1.03);
+    }
+
+    .hero-content {
+      flex: 1;
+      padding: 40px;
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--black);
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      background: linear-gradient(90deg, var(--deep-blue) 0%, var(--primary-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-content p.highlight {
+      font-size: 1.25rem;
+      color: var(--primary-blue);
+      font-weight: 600;
+      margin: 20px 0;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .hero-content p.highlight::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+      border-radius: 3px;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      margin: 20px 0;
+      color: var(--dark-gray);
+      max-width: 90%;
+    }
+
+    .chat-btn {
+      margin-top: 30px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-blue) 100%);
+      color: var(--white);
+      padding: 14px 32px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+      box-shadow: 0 10px 20px rgba(78, 113, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .chat-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--deep-blue) 0%, var(--primary-blue) 100%);
+      z-index: -1;
+      transition: opacity 0.4s ease;
+      opacity: 0;
+    }
+    
+    .chat-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(78, 113, 255, 0.4);
+    }
+    
+    .chat-btn:hover::before {
+      opacity: 1;
+    }
+    
+    .chat-btn i {
+      margin-left: 10px;
+      transition: transform 0.4s ease;
+    }
+    
+    .chat-btn:hover i {
+      transform: translateX(5px);
+    }
+
+    /* Advanced Section Design */
+    .section {
+      display: flex;
+      padding: 120px 5%;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .section-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(141, 216, 255, 0.1) 0%, rgba(187, 251, 255, 0.05) 100%);
+      z-index: 0;
+    }
+    
+    .section:nth-child(even) {
+      background-color: var(--white);
+    }
+    
+    .section:nth-child(odd) {
+      background-color: var(--gray);
+    }
+
+    .section.right .content {
+      margin-left: auto;
+    }
+
+    .section.left .content {
+      margin-right: auto;
+    }
+
+    .content {
+      width: 50%;
+      padding: 50px;
+      background: var(--section-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(84, 9, 218, 0.08);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+    
+    .content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary-blue), var(--light-blue));
+    }
+    
+    .content:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(84, 9, 218, 0.15);
+    }
+
+    .content h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: var(--black);
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .content h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+      border-radius: 2px;
+    }
+
+    .content p {
+      margin-bottom: 25px;
+      color: var(--dark-gray);
+      font-size: 1.05rem;
+    }
+
+    .content a {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-blue) 100%);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      margin-top: 15px;
+      font-weight: 600;
+      transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+      box-shadow: 0 5px 15px rgba(78, 113, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .content a::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--deep-blue) 0%, var(--primary-blue) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+    
+    .content a:hover {
+      transform: translateX(5px);
+      box-shadow: 0 10px 20px rgba(78, 113, 255, 0.4);
+    }
+    
+    .content a:hover::after {
+      opacity: 1;
+    }
+    
+    .content a i {
+      margin-left: 10px;
+      transition: transform 0.4s ease;
+    }
+    
+    .content a:hover i {
+      transform: translateX(5px);
+    }
+
+    /* Advanced Footer */
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, var(--deep-blue) 0%, var(--primary-blue) 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .footer-wave {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' fill='%23ffffff' opacity='.1'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' fill='%23ffffff' opacity='.1'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    
+    footer h3 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    footer h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--light-blue);
+      border-radius: 3px;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 30px 0;
+    }
+    
+    .social-links a {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.1);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      font-size: 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .social-links a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--light-blue) 0%, var(--pale-blue) 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-5px) scale(1.1);
+      color: var(--deep-blue);
+    }
+    
+    .social-links a:hover::before {
+      opacity: 1;
+    }
+    
+    .copyright {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: 30px;
+    }
+
+    /* Floating Particles Background */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    
+    .particle {
+      position: absolute;
+      background: rgba(141, 216, 255, 0.5);
+      border-radius: 50%;
+      filter: blur(2px);
+      animation: float 15s infinite linear;
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-1000px) rotate(720deg);
+      }
+    }
+
+    /* Responsive Design */
+    @media(max-width: 1024px) {
+      .content {
+        width: 70%;
+      }
+    }
+    
+    @media(max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        padding: 40px 5%;
+        text-align: center;
+      }
+      
+      .hero-img, .hero-content {
+        width: 100%;
+        padding: 20px 0;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      
+      .hero-content p {
+        max-width: 100%;
+      }
+      
+      .hero-img-border {
+        display: none;
+      }
+
+      .section {
+        flex-direction: column !important;
+        padding: 80px 5%;
+      }
+
+      .content {
+        width: 100%;
+        padding: 40px;
+      }
+      
+      .content::before {
+        width: 100%;
+        height: 4px;
+        top: 0;
+        left: 0;
+      }
+    }
+    
+    @media(max-width: 480px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      
+      .content {
+        padding: 30px 20px;
+      }
+      
+      .chat-btn, .content a {
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg-elements">
+      <div class="hero-bg-circle circle-1"></div>
+      <div class="hero-bg-circle circle-2"></div>
+      <div class="hero-bg-circle circle-3"></div>
+    </div>
+    
+    <div class="particles" id="particles-js"></div>
+    
+    <div class="hero-img" data-aos="fade-right" data-aos-offset="200">
+      <div class="hero-img-container">
+        <div class="hero-img-border"></div>
+        <img src="./img/development.jpg" alt="Profile Image">
+      </div>
+    </div>
+    <div class="hero-content" data-aos="fade-left" data-aos-offset="200">
+      <h1>Arun Das</h1>
+      <p class="highlight">MCA Student & Developer</p>
+      <p>Transforming ideas into digital reality through innovative coding solutions. Specializing in AI, mobile development, and cutting-edge technologies.</p>
+      <a href="chat.html" class="chat-btn">Let's Connect <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- Alternating Scroll Sections -->
+  <section class="section right" data-aos="fade-left" data-aos-offset="200">
+    <div class="section-bg"></div>
+    <div class="content glass-card">
+      <h2>About Me</h2>
+      <p>A passionate technologist with a creative mindset and problem-solving approach. I combine technical expertise with design thinking to build solutions that matter. My journey in tech is fueled by curiosity and continuous learning.</p>
+      <a href="about.html">Explore Profile <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <section class="section left" data-aos="fade-right" data-aos-offset="200">
+    <div class="section-bg"></div>
+    <div class="content glass-card">
+      <h2>Education</h2>
+      <p>Pursuing Master of Computer Applications with AI specialization at MACE. My academic journey includes comprehensive training in algorithms, data structures, machine learning, and software engineering principles.</p>
+      <a href="education.html">View Academics <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <section class="section right" data-aos="fade-left" data-aos-offset="200">
+    <div class="section-bg"></div>
+    <div class="content glass-card">
+      <h2>Skills</h2>
+      <p>Full-stack development expertise with Kotlin, Java, Python, Jetpack Compose, and modern frameworks. Continuously expanding my skillset to include emerging technologies in AI/ML and cloud computing.</p>
+      <a href="skills.html">See Capabilities <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <section class="section left" data-aos="fade-right" data-aos-offset="200">
+    <div class="section-bg"></div>
+    <div class="content glass-card">
+      <h2>Projects</h2>
+      <p>Innovative applications with real-world impact. Each project showcases my ability to solve complex problems through elegant code and thoughtful user experiences, from concept to deployment.</p>
+      <a href="projects.html">View Portfolio <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <section class="section right" data-aos="fade-left" data-aos-offset="200">
+    <div class="section-bg"></div>
+    <div class="content glass-card">
+      <h2>Certifications</h2>
+      <p>Certified in AI, Data Science, and Advanced Application Development from leading platforms. These credentials validate my commitment to professional growth and mastery of cutting-edge technologies.</p>
+      <a href="certifications.html">View Credentials <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <section class="section left" data-aos="fade-right" data-aos-offset="200">
+    <div class="section-bg"></div>
+    <div class="content glass-card">
+      <h2>Others</h2>
+      <p>Beyond code, I'm involved in volunteering, environmental initiatives, and competitive sports. These experiences shape my holistic approach to life and problem-solving.</p>
+      <a href="others.html">Learn More <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <section class="section right" data-aos="fade-up" data-aos-offset="200">
+    <div class="section-bg"></div>
+    <div class="content glass-card">
+      <h2>Contact</h2>
+      <p>Interested in collaboration or just want to chat about tech? I'm always open to discussing new projects, ideas, and opportunities to create something amazing together.</p>
+      <a href="contact.html">Get In Touch <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-wave"></div>
+    <h3>Let's Build Something Amazing</h3>
+    <p>Connect with me through these platforms</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-medium"></i></a>
+    </div>
+    <div class="copyright">
+      &copy; 2025 Arun Das. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  
+  <!-- Particles JS -->
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+      anchorPlacement: 'top-bottom'
+    });
+    
+    // Create particles
+    document.addEventListener('DOMContentLoaded', function() {
+      const particlesContainer = document.getElementById('particles-js');
+      const particleCount = 20;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random properties
+        const size = Math.random() * 10 + 5;
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        const delay = Math.random() * 15;
+        const duration = Math.random() * 20 + 10;
+        const opacity = Math.random() * 0.5 + 0.1;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}%`;
+        particle.style.top = `${posY}%`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.opacity = opacity;
+        
+        particlesContainer.appendChild(particle);
+      }
+    });
+  </script>
+</body>
+</html>
