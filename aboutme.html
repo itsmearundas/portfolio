@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Arun Das | MCA Student & Developer</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Learn more about Arun Das, an MCA student with a passion for AI, full-stack development, and mobile technologies.">
+  <meta name="keywords" content="Arun Das, about, MCA student, developer, AI enthusiast">
+  <meta name="author" content="Arun Das">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- Stylesheet (can be moved to a separate CSS file if preferred) -->
+  <style>
+    :root {
+      --deep-blue: #5409DA;
+      --primary-blue: #4E71FF;
+      --light-blue: #8DD8FF;
+      --pale-blue: #BBFBFF;
+      --black: #0A0A0A;
+      --white: #FFFFFF;
+      --gray: #F5F7FA;
+      --dark-gray: #6E7E90;
+      --section-bg: rgba(255, 255, 255, 0.85);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: var(--gray);
+      color: var(--black);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    .about-wrapper {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 5%;
+      background: linear-gradient(135deg, var(--white), var(--pale-blue));
+      position: relative;
+    }
+
+    .about-card {
+      background: var(--section-bg);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 15px 40px rgba(84, 9, 218, 0.1);
+      max-width: 900px;
+      width: 100%;
+      padding: 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-card h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--deep-blue), var(--primary-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .about-card p {
+      font-size: 1.1rem;
+      color: var(--dark-gray);
+      margin-bottom: 20px;
+    }
+
+    .about-highlight {
+      color: var(--primary-blue);
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue));
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(78, 113, 255, 0.3);
+    }
+
+    .background-circles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .circle1 { background: var(--primary-blue); width: 400px; height: 400px; top: -100px; left: -100px; }
+    .circle2 { background: var(--light-blue); width: 300px; height: 300px; bottom: -100px; right: -100px; }
+  </style>
+</head>
+
+<body>
+  <div class="about-wrapper">
+    <div class="background-circles">
+      <div class="circle circle1"></div>
+      <div class="circle circle2"></div>
+    </div>
+    <div class="about-card" data-aos="fade-up">
+      <h1>About Me</h1>
+      <p class="about-highlight">I'm Arun Das — passionate about technology and innovation.</p>
+      <p>As an MCA student with a growing fascination for <strong>AI</strong>, <strong>full-stack development</strong>, and <strong>mobile app technologies</strong>, I strive to turn ideas into real-world solutions that empower users and create impact. My academic journey has been a blend of curiosity, hands-on coding, and continuous learning.</p>
+      <p>I believe in <em>clean, functional design</em> and <em>efficient systems</em>. Whether it's building web applications, training ML models, or exploring new development stacks, I'm always eager to push boundaries and learn new tools.</p>
+      <p>Outside of code, you'll find me exploring UI aesthetics, participating in tech communities, or sketching ideas for the next big thing.</p>
+      <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
+  </div>
+
+  <!-- AOS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+  </script>
+</body>
+</html>

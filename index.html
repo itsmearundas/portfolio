@@ -2,8 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Arun Das | MCA Student & Developer</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio of Arun Das, MCA student specializing in AI and mobile development. Explore my projects, skills, and experience.">
+  <meta name="keywords" content="Arun Das, MCA student, developer, AI specialist, mobile developer, portfolio">
+  <meta name="author" content="Arun Das">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,6 +43,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      font-size: 16px;
+    }
+
     body {
       font-family: 'Space Grotesk', sans-serif;
       background-color: var(--gray);
@@ -42,6 +54,7 @@
       scroll-behavior: smooth;
       line-height: 1.7;
       overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
     }
 
     /* Glassmorphism Effect */
@@ -58,8 +71,10 @@
     .hero {
       display: flex;
       min-height: 100vh;
+      min-height: 100dvh;
+      width: 100%;
       align-items: center;
-      padding: 0 5%;
+      padding: 2rem 5%;
       background: linear-gradient(135deg, var(--white) 0%, var(--pale-blue) 100%);
       position: relative;
       overflow: hidden;
@@ -81,24 +96,24 @@
     }
     
     .circle-1 {
-      width: 600px;
-      height: 600px;
+      width: min(600px, 80vw);
+      height: min(600px, 80vw);
       background: var(--deep-blue);
       top: -200px;
       right: -200px;
     }
     
     .circle-2 {
-      width: 400px;
-      height: 400px;
+      width: min(400px, 60vw);
+      height: min(400px, 60vw);
       background: var(--primary-blue);
       bottom: -100px;
       left: -100px;
     }
     
     .circle-3 {
-      width: 300px;
-      height: 300px;
+      width: min(300px, 50vw);
+      height: min(300px, 50vw);
       background: var(--light-blue);
       top: 50%;
       left: 30%;
@@ -111,13 +126,16 @@
       align-items: center;
       position: relative;
       z-index: 2;
-      padding: 40px;
+      padding: 2rem;
     }
 
     .hero-img-container {
       position: relative;
       width: 100%;
-      max-width: 450px;
+      max-width: 380px;
+      border-radius: 20px;
+      transform-style: preserve-3d;
+      perspective: 1000px;
     }
     
     .hero-img-border {
@@ -126,15 +144,17 @@
       height: 100%;
       border: 3px solid var(--primary-blue);
       border-radius: 20px;
-      top: 20px;
-      left: 20px;
+      top: 15px;
+      left: 15px;
       z-index: -1;
       transition: all 0.5s ease;
+      transform: translateZ(-20px);
     }
     
     .hero-img-container:hover .hero-img-border {
-      top: 15px;
-      left: 15px;
+      top: 10px;
+      left: 10px;
+      transform: translateZ(-30px);
     }
 
     .hero-img img {
@@ -143,16 +163,18 @@
       border-radius: 20px;
       object-fit: cover;
       box-shadow: 0 25px 50px -12px rgba(84, 9, 218, 0.25);
-      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform: translateZ(0);
     }
     
-    .hero-img img:hover {
-      transform: scale(1.03);
+    .hero-img-container:hover img {
+      transform: translateZ(10px) scale(1.03);
+      box-shadow: 0 35px 60px -10px rgba(84, 9, 218, 0.35);
     }
 
     .hero-content {
       flex: 1;
-      padding: 40px;
+      padding: 2rem;
       position: relative;
       z-index: 2;
       max-width: 600px;
@@ -162,7 +184,7 @@
       font-size: clamp(2.5rem, 5vw, 4rem);
       color: var(--black);
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 1.25rem;
       line-height: 1.2;
       background: linear-gradient(90deg, var(--deep-blue) 0%, var(--primary-blue) 100%);
       -webkit-background-clip: text;
@@ -171,10 +193,10 @@
     }
     
     .hero-content p.highlight {
-      font-size: 1.25rem;
+      font-size: clamp(1rem, 1.25vw, 1.25rem);
       color: var(--primary-blue);
       font-weight: 600;
-      margin: 20px 0;
+      margin: 1.25rem 0;
       position: relative;
       display: inline-block;
     }
@@ -191,17 +213,17 @@
     }
 
     .hero-content p {
-      font-size: 1.1rem;
-      margin: 20px 0;
+      font-size: clamp(1rem, 1.1vw, 1.1rem);
+      margin: 1.25rem 0;
       color: var(--dark-gray);
       max-width: 90%;
     }
 
     .chat-btn {
-      margin-top: 30px;
+      margin-top: 1.875rem;
       background: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-blue) 100%);
       color: var(--white);
-      padding: 14px 32px;
+      padding: 0.875rem 2rem;
       border: none;
       border-radius: 50px;
       font-size: 1rem;
@@ -239,7 +261,7 @@
     }
     
     .chat-btn i {
-      margin-left: 10px;
+      margin-left: 0.625rem;
       transition: transform 0.4s ease;
     }
     
@@ -250,7 +272,7 @@
     /* Advanced Section Design */
     .section {
       display: flex;
-      padding: 120px 5%;
+      padding: 5rem 5%;
       align-items: center;
       justify-content: center;
       position: relative;
@@ -282,8 +304,8 @@
     }
 
     .content {
-      width: 50%;
-      padding: 50px;
+      width: 45%;
+      padding: 2.5rem;
       background: var(--section-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -307,17 +329,17 @@
     }
     
     .content:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 25px 50px rgba(84, 9, 218, 0.15);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(84, 9, 218, 0.15);
     }
 
     .content h2 {
-      font-size: 2rem;
-      margin-bottom: 25px;
+      font-size: 1.8rem;
+      margin-bottom: 1.25rem;
       color: var(--black);
       font-weight: 700;
       position: relative;
-      padding-bottom: 15px;
+      padding-bottom: 0.75rem;
     }
     
     .content h2::after {
@@ -325,28 +347,29 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 50px;
-      height: 4px;
+      width: 40px;
+      height: 3px;
       background: linear-gradient(90deg, var(--primary-blue) 0%, var(--light-blue) 100%);
       border-radius: 2px;
     }
 
     .content p {
-      margin-bottom: 25px;
+      margin-bottom: 1.25rem;
       color: var(--dark-gray);
-      font-size: 1.05rem;
+      font-size: 1rem;
     }
 
     .content a {
       background: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-blue) 100%);
       color: var(--white);
-      padding: 12px 24px;
+      padding: 0.625rem 1.25rem;
       border-radius: 50px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      margin-top: 15px;
+      margin-top: 0.625rem;
       font-weight: 600;
+      font-size: 0.9rem;
       transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
       box-shadow: 0 5px 15px rgba(78, 113, 255, 0.3);
       position: relative;
@@ -368,7 +391,7 @@
     
     .content a:hover {
       transform: translateX(5px);
-      box-shadow: 0 10px 20px rgba(78, 113, 255, 0.4);
+      box-shadow: 0 8px 20px rgba(78, 113, 255, 0.4);
     }
     
     .content a:hover::after {
@@ -376,7 +399,8 @@
     }
     
     .content a i {
-      margin-left: 10px;
+      margin-left: 0.5rem;
+      font-size: 0.9rem;
       transition: transform 0.4s ease;
     }
     
@@ -387,7 +411,7 @@
     /* Advanced Footer */
     footer {
       text-align: center;
-      padding: 60px 20px;
+      padding: 3.75rem 1.25rem;
       background: linear-gradient(135deg, var(--deep-blue) 0%, var(--primary-blue) 100%);
       color: var(--white);
       position: relative;
@@ -407,7 +431,7 @@
     
     footer h3 {
       font-size: 1.8rem;
-      margin-bottom: 30px;
+      margin-bottom: 1.875rem;
       position: relative;
       display: inline-block;
     }
@@ -427,15 +451,16 @@
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 25px;
-      margin: 30px 0;
+      gap: 1.5rem;
+      margin: 1.875rem 0;
+      flex-wrap: wrap;
     }
     
     .social-links a {
       color: var(--white);
       background: rgba(255, 255, 255, 0.1);
-      width: 50px;
-      height: 50px;
+      width: 3.125rem;
+      height: 3.125rem;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -471,7 +496,7 @@
     .copyright {
       font-size: 0.9rem;
       opacity: 0.8;
-      margin-top: 30px;
+      margin-top: 1.875rem;
     }
 
     /* Floating Particles Background */
@@ -502,45 +527,55 @@
       }
     }
 
-    /* Responsive Design */
-    @media(max-width: 1024px) {
+    /* Responsive Design Improvements */
+    @media (max-width: 1200px) {
       .content {
-        width: 70%;
+        width: 55%;
       }
     }
     
-    @media(max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        padding: 40px 5%;
-        text-align: center;
-      }
-      
-      .hero-img, .hero-content {
-        width: 100%;
-        padding: 20px 0;
-      }
-      
-      .hero-content h1 {
-        font-size: 2.8rem;
+    @media (max-width: 1024px) {
+      .content {
+        width: 65%;
       }
       
       .hero-content p {
         max-width: 100%;
       }
-      
-      .hero-img-border {
-        display: none;
+    }
+    
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
       }
-
+      
+      .hero-img, .hero-content {
+        width: 100%;
+        padding: 1.5rem 0;
+      }
+      
+      .hero-img {
+        order: 1;
+      }
+      
+      .hero-content {
+        order: 2;
+      }
+      
+      .hero-content p.highlight::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
       .section {
         flex-direction: column !important;
-        padding: 80px 5%;
       }
 
       .content {
         width: 100%;
-        padding: 40px;
+        max-width: 600px;
+        margin: 0 auto !important;
       }
       
       .content::before {
@@ -551,17 +586,99 @@
       }
     }
     
-    @media(max-width: 480px) {
+    @media (max-width: 768px) {
+      html {
+        font-size: 15px;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      
+      .hero-img-border {
+        display: none;
+      }
+      
+      .content {
+        padding: 2rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      html {
+        font-size: 14px;
+      }
+      
+      .hero {
+        padding: 1.5rem 5%;
+      }
+      
       .hero-content h1 {
         font-size: 2.2rem;
       }
       
       .content {
-        padding: 30px 20px;
+        padding: 1.5rem;
+      }
+      
+      .content h2 {
+        font-size: 1.5rem;
       }
       
       .chat-btn, .content a {
-        padding: 12px 20px;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.85rem;
+      }
+      
+      .social-links {
+        gap: 1rem;
+      }
+      
+      .social-links a {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 400px) {
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .content {
+        padding: 1.25rem;
+      }
+    }
+    
+    /* Orientation-specific adjustments */
+    @media screen and (max-height: 500px) and (orientation: landscape) {
+      .hero {
+        min-height: auto;
+        padding: 3rem 5%;
+      }
+      
+      .hero-img {
+        max-width: 250px;
+      }
+    }
+    
+    /* High DPI (Retina) displays */
+    @media 
+    (-webkit-min-device-pixel-ratio: 2), 
+    (min-resolution: 192dpi) { 
+      .hero-img img {
+        box-shadow: 0 15px 30px -8px rgba(84, 9, 218, 0.25);
+      }
+    }
+    
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
@@ -575,20 +692,19 @@
       <div class="hero-bg-circle circle-2"></div>
       <div class="hero-bg-circle circle-3"></div>
     </div>
-    
+
     <div class="particles" id="particles-js"></div>
-    
+
     <div class="hero-img" data-aos="fade-right" data-aos-offset="200">
       <div class="hero-img-container">
-        <div class="hero-img-border"></div>
-        <img src="./img/development.jpg" alt="Profile Image">
+        <img src="./img/development.jpg" alt="Arun Das - Developer" loading="lazy">
       </div>
     </div>
     <div class="hero-content" data-aos="fade-left" data-aos-offset="200">
       <h1>Arun Das</h1>
-      <p class="highlight">MCA Student & Developer</p>
-      <p>Transforming ideas into digital reality through innovative coding solutions. Specializing in AI, mobile development, and cutting-edge technologies.</p>
-      <a href="chat.html" class="chat-btn">Let's Connect <i class="fas fa-arrow-right"></i></a>
+      <p class="highlight">MCA Student & Aspiring Developer</p>
+      <p>Crafting intelligent, responsive web and mobile applications using Java, Kotlin, JavaScript, and Python. Passionate about AI solutions and impactful technology.</p>
+      <a href="#contact" class="chat-btn">Let's Connect <i class="fas fa-arrow-right"></i></a>
     </div>
   </section>
 
@@ -597,8 +713,8 @@
     <div class="section-bg"></div>
     <div class="content glass-card">
       <h2>About Me</h2>
-      <p>A passionate technologist with a creative mindset and problem-solving approach. I combine technical expertise with design thinking to build solutions that matter. My journey in tech is fueled by curiosity and continuous learning.</p>
-      <a href="about.html">Explore Profile <i class="fas fa-arrow-right"></i></a>
+      <p>Dedicated developer with a strong background in software engineering and a problem-solving mindset. I aim to bridge creativity with practical tech to build solutions that inspire.</p>
+      <a href="./aboutme.html">Explore Profile <i class="fas fa-arrow-right"></i></a>
     </div>
   </section>
 
@@ -606,8 +722,8 @@
     <div class="section-bg"></div>
     <div class="content glass-card">
       <h2>Education</h2>
-      <p>Pursuing Master of Computer Applications with AI specialization at MACE. My academic journey includes comprehensive training in algorithms, data structures, machine learning, and software engineering principles.</p>
-      <a href="education.html">View Academics <i class="fas fa-arrow-right"></i></a>
+      <p>Currently pursuing MCA (AI specialization) from Mar Athanasius College of Engineering. Holds a BCA from MES College and prior education in Computer Science.</p>
+      <a href="./education.html">View Academics <i class="fas fa-arrow-right"></i></a>
     </div>
   </section>
 
@@ -615,17 +731,17 @@
     <div class="section-bg"></div>
     <div class="content glass-card">
       <h2>Skills</h2>
-      <p>Full-stack development expertise with Kotlin, Java, Python, Jetpack Compose, and modern frameworks. Continuously expanding my skillset to include emerging technologies in AI/ML and cloud computing.</p>
-      <a href="skills.html">See Capabilities <i class="fas fa-arrow-right"></i></a>
+      <p>Proficient in Java, Kotlin, Python, JavaScript, React, Node.js, MySQL, and SQLite. Experienced with GitHub, VS Code, and Android Studio.</p>
+      <a href="./skills.html">See Capabilities <i class="fas fa-arrow-right"></i></a>
     </div>
   </section>
 
-  <section class="section left" data-aos="fade-right" data-aos-offset="200">
+  <section class="section left" id="projects" data-aos="fade-right" data-aos-offset="200">
     <div class="section-bg"></div>
     <div class="content glass-card">
       <h2>Projects</h2>
-      <p>Innovative applications with real-world impact. Each project showcases my ability to solve complex problems through elegant code and thoughtful user experiences, from concept to deployment.</p>
-      <a href="projects.html">View Portfolio <i class="fas fa-arrow-right"></i></a>
+      <p>Developed 'My Job', an Android job portal app with secure login and live job updates. Created 'EchoBoard', a real-time anonymous discussion platform using React and Node.js.</p>
+      <a href="./projects.html">View Portfolio <i class="fas fa-arrow-right"></i></a>
     </div>
   </section>
 
@@ -633,8 +749,8 @@
     <div class="section-bg"></div>
     <div class="content glass-card">
       <h2>Certifications</h2>
-      <p>Certified in AI, Data Science, and Advanced Application Development from leading platforms. These credentials validate my commitment to professional growth and mastery of cutting-edge technologies.</p>
-      <a href="certifications.html">View Credentials <i class="fas fa-arrow-right"></i></a>
+      <p>Certified in Internet of Things by Mar Athanasius College and Ernst & Young (2025). Hands-on experience in modern tech stacks.</p>
+      <a href="./certifications.html">View Credentials <i class="fas fa-arrow-right"></i></a>
     </div>
   </section>
 
@@ -642,39 +758,28 @@
     <div class="section-bg"></div>
     <div class="content glass-card">
       <h2>Others</h2>
-      <p>Beyond code, I'm involved in volunteering, environmental initiatives, and competitive sports. These experiences shape my holistic approach to life and problem-solving.</p>
-      <a href="others.html">Learn More <i class="fas fa-arrow-right"></i></a>
-    </div>
-  </section>
-
-  <section class="section right" data-aos="fade-up" data-aos-offset="200">
-    <div class="section-bg"></div>
-    <div class="content glass-card">
-      <h2>Contact</h2>
-      <p>Interested in collaboration or just want to chat about tech? I'm always open to discussing new projects, ideas, and opportunities to create something amazing together.</p>
-      <a href="contact.html">Get In Touch <i class="fas fa-arrow-right"></i></a>
+      <p>Volunteered in pandemic recovery, environmental conservation, and community surveys. Enthusiastic about fitness, music, eSports, and cricket.</p>
+      <a href="./others.html">Learn More <i class="fas fa-arrow-right"></i></a>
     </div>
   </section>
 
   <footer>
     <div class="footer-wave"></div>
-    <h3>Let's Build Something Amazing</h3>
     <p>Connect with me through these platforms</p>
     <div class="social-links">
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-medium"></i></a>
+      <a href="https://www.linkedin.com/in/itsmearundas-kunnel/" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/itsmearundas" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+      <a href="https://www.hackerrank.com/profile/itsmearundas" aria-label="HackerRank Profile"><i class="fab fa-hackerrank"></i></a>
+      <a href="https://www.instagram.com/itsmearundas/" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
     </div>
     <div class="copyright">
-      &copy; 2025 Arun Das. All rights reserved.
+      &copy; <span id="current-year"></span> Arun Das. All rights reserved.
     </div>
   </footer>
 
   <!-- AOS JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  
+
   <!-- Particles JS -->
   <script>
     // Initialize AOS
@@ -684,24 +789,23 @@
       mirror: true,
       anchorPlacement: 'top-bottom'
     });
-    
+
     // Create particles
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const particlesContainer = document.getElementById('particles-js');
       const particleCount = 20;
-      
+
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
-        
-        // Random properties
+
         const size = Math.random() * 10 + 5;
         const posX = Math.random() * 100;
         const posY = Math.random() * 100;
         const delay = Math.random() * 15;
         const duration = Math.random() * 20 + 10;
         const opacity = Math.random() * 0.5 + 0.1;
-        
+
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         particle.style.left = `${posX}%`;
@@ -709,9 +813,29 @@
         particle.style.animationDelay = `${delay}s`;
         particle.style.animationDuration = `${duration}s`;
         particle.style.opacity = opacity;
-        
+
         particlesContainer.appendChild(particle);
       }
+
+      // Set current year in footer
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
     });
   </script>
 </body>
